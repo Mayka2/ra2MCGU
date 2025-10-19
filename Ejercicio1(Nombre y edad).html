@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title> Ejercicio 1- Nombre y edad </title>
+</head>
+<body>
+    <h2>¿Cuál es tu nombre y edad?</h2>
+    <!--Campo para nombre-->
+    <label for="name">Nombre:</label>
+    <input type="text" id="name"><br><br>
+    <!--Campo para edad-->
+    <label for="age">Edad:</label>
+    <input type="number" id="age"><br><br>
+    <!--Botón para mostrar el resultado-->
+    <button onclick="mostrarmensaje()">Enviar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function mostrarmensaje(){
+            let name = document.getElementById("name").value;
+            let age = parseInt(document.getElementById("age").value);
+
+            if (!name || isNaN(age)) {
+                document.getElementById("resultado").innerText = "Por favor, introduce tu nombre y edad.";
+                return;
+            
+            }
+            //Determinamos si es mayor o menor de edad
+            let estado = age >= 18 ?"mayor" : "menor";
+            //Mostramos el resultado en el documento
+            document.getElementById("resultado").innerText = "Hola " + name + ", tienes " + age + " años, eres " + estado + " de edad.";
+
+
+        }
+        
+    </script>
+</body>
+</html>

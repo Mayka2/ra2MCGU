@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Ejercicio 3- Suma números</title>
+</head>
+<body>
+    <h2>Introduce un número</h2>
+    <!-- Campo donde el usuario introduce el número -->
+    <input id="numero">
+    <!-- Botón para sumar -->
+    <button onclick="sumar()">Sumar</button>
+    <!-- Campo donde se muestra el resultado -->
+    <p id="mensaje"></p>
+    <script>
+        // Se ejecuta cuando el usuario hace clic en el botón
+        function sumar() {
+            //Obtenemos el valor que escribió el usuario en el campo de texto
+            let valor = document.getElementById("numero").value;
+            // Convertimos ese valor a un número entero
+            let numero = parseInt(valor);
+            // Comprobamos que el valor introducido es un número
+            if (isNaN(numero)) {
+                document.getElementById("mensaje").innerHTML = "Por favor, introduce un número.";
+                return;
+            }
+            // Creamos una variable para guardar la suma
+            let suma = 0
+            //Usamos un bucle para sumar todos los números
+            for (let i = 1; i <= numero; i++) {
+                suma = suma + i;
+            }
+            //Mostramos el resultado en el texto
+            document.getElementById("mensaje").innerHTML = "La suma de 1 a " + numero + " es " + suma;
+    
+        }
+    </script>
+</body>
+</html>

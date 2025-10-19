@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 5- Tablas de multiplicar</title>
+</head>
+<body>
+    <h2>Tablas de multiplicar</h2>
+    <!-- Formulario que captura el número -->
+    <form onsubmit="mostrarTablas(event)">
+        <label for="numero"> Introduce un número:</label>
+        <!--Campo de entrada numérica-->
+        <input type="number" id="numero" min="1" required>
+        <!--Botón para enviar el formulario-->
+        <input type="submit" value="Mostrar tablas" />
+    </form>
+    <!--Contenedor donde se muestran las tablas generadas-->
+    <div id="tablas"></div>
+    <script>
+        function mostrarTablas(event) {
+            event.preventDefault(); // Evita que la página se recargue
+            // Captura el valor del input
+             const numero = parseInt(document.getElementById("numero").value);
+            // Referencia al contenedor donde se muestran las tablas
+            const contenedor= document.getElementById("tablas");
+            //Limpia el contenido anterior del contenedor
+            contenedor.innerHTML = '';
+            // Comprobamos que el número introducido es => 1
+             if (Number.isInteger(numero) && numero >= 1) {
+            // Bucle para generar las tablas de multiplicar
+            for (let n = 1; n <= numero; n++) {
+            //Encabezado tabla
+            let tablaHTML = `<h3>Tabla del ${n}</h3><ul>`;
+            // Genera la tabla del número actual
+            for (let i = 1; i<= 10; i++){
+                tablaHTML += `<li>${n} x ${i} = ${n*i}</li>`;
+            }
+            // Cierra la tabla y añade un espacio entre tablas
+            tablaHTML += '</ul><br>';
+
+            // Agrega la tabla al contenedor
+            contenedor.innerHTML += tablaHTML;
+            }
+            } else {
+            // Si el número no es válido,muestra un mensaje y limpia el campo
+            alert("Por favor, introduce un número entero mayor o igual a 1.");
+            document.getElementById("numero").value = '';
+            }
+        }
+        
+    </script>
+</body>
+</html>

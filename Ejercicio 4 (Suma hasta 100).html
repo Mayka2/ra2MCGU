@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title> Ejercicio 4- Suma hasta 100 </title>
+</head>
+<body>
+    <h2>Introduce números(hasta sumar 100)</h2>
+    <!-- Campo para introducir el número -->
+    <label>Número:</label><input type="number" id="numero">
+    <button onclick="sumarHasta100()" id="sumar">Sumar</button>
+    <p id="resultado"></p>
+    <script>
+        // Variables para guardar la suma y el contador
+        let suma = 0;
+        let contador = 0;
+        
+        function sumarHasta100() {
+         //Obtener el número introducido
+         let valor = parseFloat(document.getElementById("numero").value);
+         //Añadir el número a la suma
+         suma += valor;
+         contador++;
+         // Comprobar si la suma supera 100
+         if(suma > 100)  {
+            document.getElementById("resultado").innerText = "Se ha superado el límite de 100. La suma total es: " + suma+ " y has introducido " + contador + " números.";
+             
+         
+         // Desactivar el campo y el botón
+         document.getElementById("numero").disabled = true;
+         document.getElementById("sumar").disabled = true;
+         } else {
+        
+         // Mostrar la suma y el contador actualizados
+         document.getElementById("resultado").innerText= "La suma actual es: " + suma + " y has introducido " + contador + " números.";
+         //Limpiar los campos
+         document.getElementById("numero").value = "";
+         document.getElementById("numero").focus();
+        }
+    }
+    </script>
+</body>
+</html>
